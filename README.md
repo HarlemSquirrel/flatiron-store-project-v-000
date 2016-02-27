@@ -31,3 +31,42 @@ We're going to build an e-commerce site! We're going to make an online store whe
   3. Users should always be able to go "home"
   4. If the user has a current cart, there should be a "Cart" link to their current cart
 
+
+
+### Notes
+
+Cart
+status
+belong_to :user
+has_many :line_items
+has_many :items, through: :line_items
+#total method
+#add_item method
+
+Category
+title
+has_many items
+
+Item
+title
+price
+has inventroy
+belongs_to category
+has_many line_items
+has many line_items consolidated by line_item quantity
+##available_items class method
+
+LineItem
+belongs_to cart
+belongs_to item
+has a quantity, default 1
+
+Orders
+belongs_to user
+item_list?
+total
+date_placed
+
+User
+has_many :carts
+has a current_cart
