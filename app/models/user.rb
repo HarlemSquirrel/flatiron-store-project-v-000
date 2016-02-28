@@ -5,12 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :carts
+  belongs_to :current_cart, class_name: "Cart"
 
-  def current_cart=(cart)
-    carts << cart
-  end
-
-  def current_cart
-    carts.last
-  end
 end
